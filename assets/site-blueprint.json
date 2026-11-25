@@ -1,0 +1,316 @@
+{
+  "a_casa_photos": [
+    {
+      "caption_pt": "Poltronas terracota integradas ao jardim por amplas paredes de vidro",
+      "file": "assets/images/12-sala-estar-poltronas-terracota-integrad.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Sala envidraçada com poltronas terracota e vista jardim",
+      "file": "assets/images/13-sala-estar-sala-envidracada-com-poltron.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Sala de TV aconchegante com sofá terracota e luz quente",
+      "file": "assets/images/14-sala-estar-sala-de-tv-aconchegante-com.jpg",
+      "orientation": "landscape"
+    },
+    {
+      "caption_pt": "Mesa posta à noite com vinho, lanterna acesa e fogo de chão",
+      "file": "assets/images/27-detalhes-mesa-posta-a-noite-com-vinho.jpg",
+      "orientation": "portrait"
+    }
+  ],
+  "area_externa_photos": [
+    {
+      "caption_pt": "Hidromassagem iluminada no deck com vista para a área gourmet",
+      "file": "assets/images/05-hidro-pergola-hidromassagem-iluminada-no-d.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Hidro em deck elevado com degraus suspensos, jardim e balanço",
+      "file": "assets/images/06-hidro-pergola-hidro-em-deck-elevado-com-de.jpg",
+      "orientation": "landscape"
+    },
+    {
+      "caption_pt": "Jardim ensolarado com fogo de chão, ombrelone e conjunto externo",
+      "file": "assets/images/09-fogo-de-chao-lazer-jardim-ensolarado-com-fogo-d.jpg",
+      "orientation": "landscape"
+    },
+    {
+      "caption_pt": "Fogo de chão e mesa externa cercados pelo jardim ensolarado",
+      "file": "assets/images/10-fogo-de-chao-lazer-fogo-de-chao-e-mesa-externa.jpg",
+      "orientation": "landscape"
+    },
+    {
+      "caption_pt": "Piscina ampla cercada de verde com espreguiçadeiras",
+      "file": "assets/images/11-fogo-de-chao-lazer-piscina-ampla-cercada-de-ver.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Vista da fachada através do jardim florido com varanda ensolarada",
+      "file": "assets/images/02-fachada-jardim-vista-da-fachada-atraves-do.jpg",
+      "orientation": "landscape"
+    }
+  ],
+  "brand": {
+    "name": "Refúgio Terracota & Jardim",
+    "slogan": "Vidro, jardim, fogo de chão e hidro sob o pergolado.",
+    "subtitle": "Casa Enio Junior · Conceito v0.1"
+  },
+  "gallery_photos": [
+    {
+      "caption_pt": "Fachada charmosa com varanda, mesa de jardim e corredor arborizado",
+      "category": "fachada_jardim",
+      "category_label_pt": "Jardim & Fachada",
+      "file": "assets/images/01-hero-fachada-charmosa-com-varanda.jpg",
+      "orientation": "landscape"
+    },
+    {
+      "caption_pt": "Vista da fachada através do jardim florido com varanda ensolarada",
+      "category": "fachada_jardim",
+      "category_label_pt": "Jardim & Fachada",
+      "file": "assets/images/02-fachada-jardim-vista-da-fachada-atraves-do.jpg",
+      "orientation": "landscape"
+    },
+    {
+      "caption_pt": "Capela de pedra no jardim com caminho e luz acolhedora",
+      "category": "fachada_jardim",
+      "category_label_pt": "Jardim & Fachada",
+      "file": "assets/images/03-fachada-jardim-capela-de-pedra-no-jardim-co.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Fachada com janelões de vidro, pedras e jardim florido",
+      "category": "fachada_jardim",
+      "category_label_pt": "Jardim & Fachada",
+      "file": "assets/images/04-fachada-jardim-fachada-com-janeloes-de-vidr.jpg",
+      "orientation": "square"
+    },
+    {
+      "caption_pt": "Hidromassagem iluminada no deck com vista para a área gourmet",
+      "category": "hidro_pergola",
+      "category_label_pt": "Hidro & Pergolado",
+      "file": "assets/images/05-hidro-pergola-hidromassagem-iluminada-no-d.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Hidro em deck elevado com degraus suspensos, jardim e balanço",
+      "category": "hidro_pergola",
+      "category_label_pt": "Hidro & Pergolado",
+      "file": "assets/images/06-hidro-pergola-hidro-em-deck-elevado-com-de.jpg",
+      "orientation": "landscape"
+    },
+    {
+      "caption_pt": "Hidromassagem em deck elevado com balanço e vista para o jardim",
+      "category": "hidro_pergola",
+      "category_label_pt": "Hidro & Pergolado",
+      "file": "assets/images/07-hidro-pergola-hidromassagem-em-deck-elevad.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Deck elevado com hidro, pergolado iluminado e balanço no jardim",
+      "category": "hidro_pergola",
+      "category_label_pt": "Hidro & Pergolado",
+      "file": "assets/images/08-hidro-pergola-deck-elevado-com-hidro-pergo.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Jardim ensolarado com fogo de chão, ombrelone e conjunto externo",
+      "category": "fogo_de_chao_lazer",
+      "category_label_pt": "Lazer & Fogo de Chão",
+      "file": "assets/images/09-fogo-de-chao-lazer-jardim-ensolarado-com-fogo-d.jpg",
+      "orientation": "landscape"
+    },
+    {
+      "caption_pt": "Fogo de chão e mesa externa cercados pelo jardim ensolarado",
+      "category": "fogo_de_chao_lazer",
+      "category_label_pt": "Lazer & Fogo de Chão",
+      "file": "assets/images/10-fogo-de-chao-lazer-fogo-de-chao-e-mesa-externa.jpg",
+      "orientation": "landscape"
+    },
+    {
+      "caption_pt": "Piscina ampla cercada de verde com espreguiçadeiras",
+      "category": "fogo_de_chao_lazer",
+      "category_label_pt": "Lazer & Fogo de Chão",
+      "file": "assets/images/11-fogo-de-chao-lazer-piscina-ampla-cercada-de-ver.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Poltronas terracota integradas ao jardim por amplas paredes de vidro",
+      "category": "sala_detalhes",
+      "category_label_pt": "Sala & Detalhes",
+      "file": "assets/images/12-sala-estar-poltronas-terracota-integrad.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Sala envidraçada com poltronas terracota e vista jardim",
+      "category": "sala_detalhes",
+      "category_label_pt": "Sala & Detalhes",
+      "file": "assets/images/13-sala-estar-sala-envidracada-com-poltron.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Sala de TV aconchegante com sofá terracota e luz quente",
+      "category": "sala_detalhes",
+      "category_label_pt": "Sala & Detalhes",
+      "file": "assets/images/14-sala-estar-sala-de-tv-aconchegante-com.jpg",
+      "orientation": "landscape"
+    },
+    {
+      "caption_pt": "Sala de estar aconchegante com sofá em L e aparador decorado",
+      "category": "sala_detalhes",
+      "category_label_pt": "Sala & Detalhes",
+      "file": "assets/images/15-sala-estar-sala-de-estar-aconchegante-c.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Espaço gourmet amplo com mesas, sinuca e churrasqueiras",
+      "category": "area_gourmet",
+      "category_label_pt": "Área Gourmet",
+      "file": "assets/images/16-area-gourmet-cozin-espaco-gourmet-amplo-com-mes.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Ampla área gourmet integrada com bar, mesa, TV e churrasqueira",
+      "category": "area_gourmet",
+      "category_label_pt": "Área Gourmet",
+      "file": "assets/images/17-area-gourmet-cozin-ampla-area-gourmet-integrada.jpg",
+      "orientation": "landscape"
+    },
+    {
+      "caption_pt": "Área gourmet completa com balcão, banquetas e mesa",
+      "category": "area_gourmet",
+      "category_label_pt": "Área Gourmet",
+      "file": "assets/images/18-area-gourmet-cozin-area-gourmet-completa-com-ba.jpg",
+      "orientation": "landscape"
+    },
+    {
+      "caption_pt": "Área gourmet com churrasqueira, cervejeira e bancada completa",
+      "category": "area_gourmet",
+      "category_label_pt": "Área Gourmet",
+      "file": "assets/images/19-area-gourmet-cozin-area-gourmet-com-churrasquei.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Suíte ampla com duas camas, ar-condicionado e iluminação moderna",
+      "category": "quartos_banheiros",
+      "category_label_pt": "Quartos & Banheiros",
+      "file": "assets/images/20-quartos-suites-suite-ampla-com-duas-camas-a.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Quarto amplo com ar-condicionado e duas camas",
+      "category": "quartos_banheiros",
+      "category_label_pt": "Quartos & Banheiros",
+      "file": "assets/images/21-quartos-suites-quarto-amplo-com-ar-condicio.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Quarto iluminado com camas confortáveis e cortinas claras",
+      "category": "quartos_banheiros",
+      "category_label_pt": "Quartos & Banheiros",
+      "file": "assets/images/22-quartos-suites-quarto-iluminado-com-camas-c.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Quarto climatizado com cama de casal e iluminação moderna",
+      "category": "quartos_banheiros",
+      "category_label_pt": "Quartos & Banheiros",
+      "file": "assets/images/23-quartos-suites-quarto-climatizado-com-cama.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Quarto climatizado com cama de casal e decoração acolhedora",
+      "category": "quartos_banheiros",
+      "category_label_pt": "Quartos & Banheiros",
+      "file": "assets/images/24-quartos-suites-quarto-climatizado-com-cama.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Banheiro moderno com box preto e revestimento amadeirado",
+      "category": "quartos_banheiros",
+      "category_label_pt": "Quartos & Banheiros",
+      "file": "assets/images/25-banheiros-banheiro-moderno-com-box-pre.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Lavabo com bancada de madeira rústica, cuba de vidro e espelho redondo",
+      "category": "quartos_banheiros",
+      "category_label_pt": "Quartos & Banheiros",
+      "file": "assets/images/26-banheiros-lavabo-com-bancada-de-madeir.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Mesa posta à noite com vinho, lanterna acesa e fogo de chão",
+      "category": "sala_detalhes",
+      "category_label_pt": "Sala & Detalhes",
+      "file": "assets/images/27-detalhes-mesa-posta-a-noite-com-vinho.jpg",
+      "orientation": "portrait"
+    }
+  ],
+  "gourmet_photos": [
+    {
+      "caption_pt": "Espaço gourmet amplo com mesas, sinuca e churrasqueiras",
+      "file": "assets/images/16-area-gourmet-cozin-espaco-gourmet-amplo-com-mes.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Ampla área gourmet integrada com bar, mesa, TV e churrasqueira",
+      "file": "assets/images/17-area-gourmet-cozin-ampla-area-gourmet-integrada.jpg",
+      "orientation": "landscape"
+    },
+    {
+      "caption_pt": "Área gourmet completa com balcão, banquetas e mesa",
+      "file": "assets/images/18-area-gourmet-cozin-area-gourmet-completa-com-ba.jpg",
+      "orientation": "landscape"
+    },
+    {
+      "caption_pt": "Área gourmet com churrasqueira, cervejeira e bancada completa",
+      "file": "assets/images/19-area-gourmet-cozin-area-gourmet-com-churrasquei.jpg",
+      "orientation": "portrait"
+    }
+  ],
+  "hero_photo": {
+    "caption_pt": "Fachada charmosa com varanda, mesa de jardim e corredor arborizado",
+    "file": "assets/images/01-hero-fachada-charmosa-com-varanda.jpg",
+    "orientation": "landscape"
+  },
+  "quartos_photos": [
+    {
+      "caption_pt": "Suíte ampla com duas camas, ar-condicionado e iluminação moderna",
+      "file": "assets/images/20-quartos-suites-suite-ampla-com-duas-camas-a.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Quarto amplo com ar-condicionado e duas camas",
+      "file": "assets/images/21-quartos-suites-quarto-amplo-com-ar-condicio.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Quarto iluminado com camas confortáveis e cortinas claras",
+      "file": "assets/images/22-quartos-suites-quarto-iluminado-com-camas-c.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Quarto climatizado com cama de casal e iluminação moderna",
+      "file": "assets/images/23-quartos-suites-quarto-climatizado-com-cama.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Quarto climatizado com cama de casal e decoração acolhedora",
+      "file": "assets/images/24-quartos-suites-quarto-climatizado-com-cama.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Banheiro moderno com box preto e revestimento amadeirado",
+      "file": "assets/images/25-banheiros-banheiro-moderno-com-box-pre.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "caption_pt": "Lavabo com bancada de madeira rústica, cuba de vidro e espelho redondo",
+      "file": "assets/images/26-banheiros-lavabo-com-bancada-de-madeir.jpg",
+      "orientation": "portrait"
+    }
+  ]
+}
