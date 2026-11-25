@@ -414,17 +414,19 @@ h3 em {
   display: inline-flex;
   flex-direction: column;
   gap: 0.1rem;
+  flex-shrink: 0;
   z-index: 1002;
 }
 
 .brand-name {
   font-family: var(--font-serif);
-  font-size: clamp(1.18rem, 1.5vw, 1.4rem);
+  font-size: clamp(1rem, 1.28vw, 1.26rem);
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   line-height: 1.05;
-  color: inherit;
+  white-space: nowrap;
+  color: var(--cream);
   transition: color 0.3s ease;
 }
 
@@ -433,30 +435,31 @@ h3 em {
 }
 
 .brand-sub {
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  opacity: 0.72;
+  white-space: nowrap;
+  opacity: 0.78;
 }
 
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: clamp(1.2rem, 2vw, 1.85rem);
+  gap: clamp(0.9rem, 1.5vw, 1.45rem);
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: clamp(1rem, 1.6vw, 1.55rem);
+  gap: clamp(0.75rem, 1.25vw, 1.35rem);
 }
 
 .nav-links a {
   position: relative;
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
   padding-block: 0.3rem;
@@ -670,6 +673,14 @@ h3 em {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(1.35rem, 2.5vw, 2rem);
   align-items: start;
+}
+
+.editorial-grid-casa {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.editorial-grid-casa .editorial-span-wide {
+  grid-column: span 1;
 }
 
 .editorial-span-wide {
@@ -1199,24 +1210,15 @@ h3 em {
    Scroll Reveal Seguro
    ========================================================================== */
 
-@keyframes revealSafetyFallback {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .reveal {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.65s var(--ease-editorial), transform 0.65s var(--ease-editorial);
-  animation: revealSafetyFallback 0.5s ease 1.4s forwards;
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.45s var(--ease-editorial), transform 0.45s var(--ease-editorial);
 }
 
 .reveal.is-visible {
-  animation: none;
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

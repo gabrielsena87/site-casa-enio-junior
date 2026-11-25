@@ -6,6 +6,13 @@
 
   const smoothScrollTo = (targetSelector) => {
     if (!targetSelector || targetSelector === '#') return false;
+    if (targetSelector === '#topo') {
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReducedMotion() ? 'auto' : 'smooth',
+      });
+      return true;
+    }
     let target = null;
     try {
       target = document.querySelector(targetSelector);
