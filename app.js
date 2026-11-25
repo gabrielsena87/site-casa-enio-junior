@@ -62,12 +62,23 @@
     const frames = Array.from(document.querySelectorAll('[data-rv]'));
     if (!frames.length) return;
 
+    const revealFrame = (el) => el.classList.add('is-revealed');
+
     if (!('IntersectionObserver' in window) || prefersReducedMotion()) {
-      frames.forEach((el) => el.classList.add('is-revealed'));
+      frames.forEach(revealFrame);
       return;
     }
 
-    const revealFrame = (el) => el.classList.add('is-revealed');
+    const checkVisible = () => {
+      const vh = window.innerHeight || document.documentElement.clientHeight || 900;
+      frames.forEach((el) => {
+        if (el.classList.contains('is-revealed')) return;
+        const rect = el.getBoundingClientRect();
+        if (rect.width > 0 && rect.height > 0 && rect.top <= vh + 100 && rect.bottom >= -80) {
+          revealFrame(el);
+        }
+      });
+    };
 
     const observer = new IntersectionObserver(
       (entries, obs) => {
@@ -78,19 +89,16 @@
         });
       },
       {
-        threshold: 0.06,
-        rootMargin: '0px 0px -24px 0px',
+        threshold: 0.01,
+        rootMargin: '100px 0px 100px 0px',
       }
     );
 
-    frames.forEach((el) => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.96 && rect.bottom > 0) {
-        revealFrame(el);
-      } else {
-        observer.observe(el);
-      }
-    });
+    frames.forEach((el) => observer.observe(el));
+    checkVisible();
+    window.addEventListener('scroll', checkVisible, { passive: true });
+    window.addEventListener('resize', checkVisible, { passive: true });
+    window.addEventListener('load', checkVisible, { once: true });
   };
 
   /**
