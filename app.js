@@ -1,6 +1,8 @@
 (() => {
   'use strict';
 
+  document.documentElement.classList.add('js-ready');
+
   const prefersReducedMotion = () =>
     window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -13,6 +15,7 @@
       });
       return true;
     }
+
     let target = null;
     try {
       target = document.querySelector(targetSelector);
@@ -29,57 +32,69 @@
   };
 
   /**
-   * 1. Navbar scroll state & 2. Mobile menu drawer
+   * 1. Menu Superior (Casa Pitanga: scrolled > 40px + FAB mobile após Hero)
    */
-  const initNavbar = () => {
+  const initNavbarAndFab = () => {
     const siteNav = document.getElementById('siteNav');
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
+    const mobileFab = document.getElementById('mobileFab');
+    const heroEl = document.getElementById('topo');
 
-    if (siteNav) {
-      const updateNavScroll = () => {
-        siteNav.classList.toggle('is-scrolled', window.scrollY > 40);
-      };
-      updateNavScroll();
-      window.addEventListener('scroll', updateNavScroll, { passive: true });
-    }
-
-    if (!navToggle || !navMenu) return;
-
-    const setMenuState = (isOpen) => {
-      navMenu.classList.toggle('is-open', isOpen);
-      navToggle.classList.toggle('is-open', isOpen);
-      navToggle.setAttribute('aria-expanded', String(isOpen));
+    const updateOnScroll = () => {
+      const y = window.scrollY || window.pageYOffset || 0;
+      if (siteNav) {
+        siteNav.classList.toggle('is-scrolled', y > 40);
+      }
+      if (mobileFab && heroEl) {
+        const threshold = Math.max(320, heroEl.offsetHeight - 120);
+        mobileFab.classList.toggle('show', y > threshold);
+      }
     };
 
-    navToggle.addEventListener('click', () => {
-      const isCurrentlyOpen = navMenu.classList.contains('is-open');
-      setMenuState(!isCurrentlyOpen);
-    });
+    updateOnScroll();
+    window.addEventListener('scroll', updateOnScroll, { passive: true });
+    window.addEventListener('resize', updateOnScroll, { passive: true });
+  };
 
-    navMenu.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        setMenuState(false);
-      });
-    });
+  /**
+   * 2. Reveal de Imagens Estilo Casa Pitanga ([data-rv] -> .is-revealed)
+   */
+  const initImageReveals = () => {
+    const frames = Array.from(document.querySelectorAll('[data-rv]'));
+    if (!frames.length) return;
 
-    document.addEventListener('click', (event) => {
-      if (!navMenu.classList.contains('is-open')) return;
-      if (!navMenu.contains(event.target) && !navToggle.contains(event.target)) {
-        setMenuState(false);
+    if (!('IntersectionObserver' in window) || prefersReducedMotion()) {
+      frames.forEach((el) => el.classList.add('is-revealed'));
+      return;
+    }
+
+    const revealFrame = (el) => el.classList.add('is-revealed');
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          revealFrame(entry.target);
+          obs.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.06,
+        rootMargin: '0px 0px -24px 0px',
       }
-    });
+    );
 
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && navMenu.classList.contains('is-open')) {
-        setMenuState(false);
-        navToggle.focus();
+    frames.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.96 && rect.bottom > 0) {
+        revealFrame(el);
+      } else {
+        observer.observe(el);
       }
     });
   };
 
   /**
-   * 3. Filterable gallery
+   * 3. Filtros da Galeria
    */
   const initGalleryFilters = () => {
     const filterButtons = Array.from(document.querySelectorAll('.gallery-filters .filter-btn'));
@@ -117,7 +132,7 @@
   };
 
   /**
-   * 4. Lightbox modal (respects active gallery filter)
+   * 4. Lightbox Universal (fotos editoriais por seção data-gal + galeria filtrada)
    */
   const initLightbox = () => {
     const lightbox = document.getElementById('lightbox');
@@ -130,48 +145,35 @@
 
     if (!lightbox || !lightboxImg) return;
 
-    let visibleItems = [];
+    let activeItems = [];
     let currentIndex = 0;
     let previousBodyOverflow = '';
     let lastFocusedElement = null;
 
-    const getVisibleItems = () =>
-      Array.from(document.querySelectorAll('.gallery-grid .gallery-item')).filter(
-        (item) => !item.classList.contains('is-hidden')
-      );
-
     const renderCurrentItem = () => {
-      if (!visibleItems.length) return;
-
-      const item = visibleItems[currentIndex];
+      if (!activeItems.length) return;
+      const item = activeItems[currentIndex];
       const img = item.querySelector('img');
-      const caption = item.dataset.caption || (img ? img.alt : '') || '';
+      const captionEl = item.querySelector('.photo-caption, .gallery-caption');
+      const caption = item.dataset.caption || (captionEl ? captionEl.textContent.trim() : '') || (img ? img.alt : '') || '';
       const src = img ? img.dataset.full || img.currentSrc || img.src : '';
 
-      if (src) {
-        lightboxImg.src = src;
-      }
+      if (src) lightboxImg.src = src;
       lightboxImg.alt = (img && img.alt) || caption;
 
-      if (lightboxCaption) {
-        lightboxCaption.textContent = caption;
-      }
+      if (lightboxCaption) lightboxCaption.textContent = caption;
+      if (lightboxCounter) lightboxCounter.textContent = `${currentIndex + 1} / ${activeItems.length}`;
 
-      if (lightboxCounter) {
-        lightboxCounter.textContent = `${currentIndex + 1} / ${visibleItems.length}`;
-      }
-
-      const hasMultiple = visibleItems.length > 1;
+      const hasMultiple = activeItems.length > 1;
       if (lightboxPrev) lightboxPrev.disabled = !hasMultiple;
       if (lightboxNext) lightboxNext.disabled = !hasMultiple;
     };
 
-    const openLightbox = (clickedItem) => {
-      visibleItems = getVisibleItems();
-      if (!visibleItems.length) return;
-
-      const foundIndex = visibleItems.indexOf(clickedItem);
-      currentIndex = foundIndex >= 0 ? foundIndex : 0;
+    const openWithCollection = (items, clickedItem) => {
+      if (!items.length) return;
+      activeItems = items;
+      const idx = items.indexOf(clickedItem);
+      currentIndex = idx >= 0 ? idx : 0;
 
       lastFocusedElement = document.activeElement;
       previousBodyOverflow = document.body.style.overflow;
@@ -181,14 +183,11 @@
       lightbox.classList.add('is-open');
       lightbox.setAttribute('aria-hidden', 'false');
 
-      if (lightboxClose) {
-        lightboxClose.focus();
-      }
+      if (lightboxClose) lightboxClose.focus();
     };
 
     const closeLightbox = () => {
       if (!lightbox.classList.contains('is-open')) return;
-
       lightbox.classList.remove('is-open');
       lightbox.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = previousBodyOverflow;
@@ -200,16 +199,34 @@
     };
 
     const stepLightbox = (direction) => {
-      if (visibleItems.length <= 1) return;
-      currentIndex = (currentIndex + direction + visibleItems.length) % visibleItems.length;
+      if (activeItems.length <= 1) return;
+      currentIndex = (currentIndex + direction + activeItems.length) % activeItems.length;
       renderCurrentItem();
     };
 
-    document.addEventListener('click', (event) => {
-      const galleryItem = event.target.closest('.gallery-grid .gallery-item');
+    const handleTriggerClick = (target) => {
+      const galleryItem = target.closest('.gallery-grid .gallery-item');
       if (galleryItem && !galleryItem.classList.contains('is-hidden')) {
-        openLightbox(galleryItem);
+        const visibleGallery = Array.from(document.querySelectorAll('.gallery-grid .gallery-item')).filter(
+          (item) => !item.classList.contains('is-hidden')
+        );
+        openWithCollection(visibleGallery, galleryItem);
+        return true;
       }
+
+      const photoCard = target.closest('.photo-card[data-gal]');
+      if (photoCard) {
+        const gal = photoCard.dataset.gal;
+        const groupItems = Array.from(document.querySelectorAll(`.photo-card[data-gal="${CSS.escape(gal)}"]`));
+        openWithCollection(groupItems, photoCard);
+        return true;
+      }
+
+      return false;
+    };
+
+    document.addEventListener('click', (event) => {
+      handleTriggerClick(event.target);
     });
 
     document.addEventListener('keydown', (event) => {
@@ -227,44 +244,26 @@
         return;
       }
 
-      const galleryItem = event.target.closest('.gallery-grid .gallery-item');
-      if (
-        galleryItem &&
-        !galleryItem.classList.contains('is-hidden') &&
-        galleryItem.tagName !== 'BUTTON' &&
-        galleryItem.tagName !== 'A' &&
-        (event.key === 'Enter' || event.key === ' ')
-      ) {
-        event.preventDefault();
-        openLightbox(galleryItem);
+      if (event.key === 'Enter' || event.key === ' ') {
+        const photoCard = event.target.closest('.photo-card[data-gal]');
+        if (photoCard) {
+          event.preventDefault();
+          handleTriggerClick(photoCard);
+        }
       }
     });
 
-    if (lightboxClose) {
-      lightboxClose.addEventListener('click', closeLightbox);
-    }
-
-    if (lightboxPrev) {
-      lightboxPrev.addEventListener('click', () => stepLightbox(-1));
-    }
-
-    if (lightboxNext) {
-      lightboxNext.addEventListener('click', () => stepLightbox(1));
-    }
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    if (lightboxPrev) lightboxPrev.addEventListener('click', () => stepLightbox(-1));
+    if (lightboxNext) lightboxNext.addEventListener('click', () => stepLightbox(1));
 
     lightbox.addEventListener('click', (event) => {
-      if (
-        event.target === lightbox ||
-        event.target.classList.contains('lightbox-backdrop') ||
-        event.target.hasAttribute('data-lightbox-close')
-      ) {
-        closeLightbox();
-      }
+      if (event.target === lightbox) closeLightbox();
     });
   };
 
   /**
-   * 5. FAQ Accordion
+   * 5. FAQ Acordeão
    */
   const initFaqAccordion = () => {
     const triggers = document.querySelectorAll('#faq .faq-trigger, .faq-trigger');
@@ -282,36 +281,7 @@
   };
 
   /**
-   * 6. Lightweight Scroll Reveal via IntersectionObserver
-   */
-  const initScrollReveal = () => {
-    const revealElements = Array.from(document.querySelectorAll('.reveal'));
-    if (!revealElements.length) return;
-
-    if (!('IntersectionObserver' in window) || prefersReducedMotion()) {
-      revealElements.forEach((el) => el.classList.add('is-visible'));
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('is-visible');
-          obs.unobserve(entry.target);
-        });
-      },
-      {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px',
-      }
-    );
-
-    revealElements.forEach((el) => observer.observe(el));
-  };
-
-  /**
-   * 7. Placeholder reservation / WhatsApp actions & smooth internal anchors
+   * 6. Navegação Suave & Avisos Placeholder de Briefing
    */
   const initPlaceholderActions = () => {
     let toastTimer = null;
@@ -328,10 +298,10 @@
           left: '50%',
           bottom: '24px',
           transform: 'translateX(-50%) translateY(12px)',
-          backgroundColor: '#1F2B1E',
-          color: '#F6F2EA',
+          backgroundColor: '#2C3A20',
+          color: '#F5F2EC',
           padding: '12px 20px',
-          borderRadius: '999px',
+          borderRadius: '2px',
           fontSize: '0.875rem',
           lineHeight: '1.4',
           boxShadow: '0 10px 28px rgba(0, 0, 0, 0.22)',
@@ -356,33 +326,25 @@
         if (!toastEl) return;
         toastEl.style.opacity = '0';
         toastEl.style.transform = 'translateX(-50%) translateY(12px)';
-      }, 3600);
+      }, 3400);
     };
 
     document.addEventListener('click', (event) => {
-      const placeholderTrigger = event.target.closest(
-        'a[href="#reservas"], [data-placeholder-wa], .whatsapp-float'
-      );
-
+      const placeholderTrigger = event.target.closest('a[href="#reservas"], [data-placeholder-wa]');
       if (placeholderTrigger) {
         const href = placeholderTrigger.getAttribute('href') || '';
-        const isPlaceholderWa =
-          placeholderTrigger.hasAttribute('data-placeholder-wa') ||
-          (placeholderTrigger.classList.contains('whatsapp-float') &&
-            (!href || href === '#' || href === '#reservas'));
+        const isPlaceholderWa = placeholderTrigger.hasAttribute('data-placeholder-wa');
 
         if (href === '#reservas') {
           event.preventDefault();
           smoothScrollTo('#reservas');
-        } else if (isPlaceholderWa && (!href || href === '#')) {
+        } else if (isPlaceholderWa) {
           event.preventDefault();
         }
 
         if (isPlaceholderWa) {
-          const customNotice = placeholderTrigger.dataset.placeholderMessage;
           showDiscreteNotice(
-            customNotice ||
-              'Canal oficial de reservas via WhatsApp será ativado após confirmação do briefing.'
+            'Canal oficial de reservas via WhatsApp será ativado após confirmação do briefing.'
           );
         }
         return;
@@ -399,16 +361,16 @@
   };
 
   const init = () => {
-    initNavbar();
+    initNavbarAndFab();
+    initImageReveals();
     initGalleryFilters();
     initLightbox();
     initFaqAccordion();
-    initScrollReveal();
     initPlaceholderActions();
   };
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', init, { once: true });
   } else {
     init();
   }

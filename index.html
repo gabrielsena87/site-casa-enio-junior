@@ -3,48 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Refúgio Terracota &amp; Jardim — Casa Enio Junior · Conceito v0.2</title>
-  <meta name="description" content="Refúgio Terracota &amp; Jardim (Casa Enio Junior · Conceito v0.2): vidro, jardim florido, piscina, fogo de chão, área gourmet completa e hidromassagem sob o pergolado.">
+  <title>Refúgio Terracota &amp; Jardim — Casa Enio Junior · Conceito v0.3</title>
+  <meta name="description" content="Refúgio Terracota &amp; Jardim (Casa Enio Junior · Conceito v0.3): vidro, jardim florido, piscina, fogo de chão, área gourmet completa e hidromassagem sob o pergolado.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
 
-  <!-- Navbar Fixa -->
+  <!-- Menu Superior Fiel à Casa Pitanga (Wordmark + CTA único) -->
   <header class="site-nav" id="siteNav">
-    <div class="container nav-inner">
-      <a href="#topo" class="brand-logo" aria-label="Refúgio Terracota &amp; Jardim - Ir para o topo">
-        <span class="brand-name">Refúgio Terracota &amp; Jardim</span>
-        <span class="brand-sub">Casa Enio Junior · Conceito v0.2</span>
+    <div class="nav-inner">
+      <a href="#topo" class="hdr-mark">Refúgio Terracota &amp; Jardim</a>
+      <a href="#reservas" class="btn btn-primary nav-cta">
+        <span class="only-wide">Reservar pelo WhatsApp</span>
+        <span class="only-mobile">Reservar</span>
       </a>
-
-      <button
-        type="button"
-        class="nav-toggle"
-        id="navToggle"
-        aria-expanded="false"
-        aria-controls="navMenu"
-        aria-label="Abrir menu de navegação"
-      >
-        <span class="nav-toggle-bar" aria-hidden="true"></span>
-        <span class="nav-toggle-bar" aria-hidden="true"></span>
-        <span class="nav-toggle-bar" aria-hidden="true"></span>
-      </button>
-
-      <nav class="nav-menu" id="navMenu" aria-label="Navegação principal">
-        <ul class="nav-links">
-          <li><a href="#a-casa" class="nav-link">A Casa</a></li>
-          <li><a href="#area-externa" class="nav-link">Área Externa</a></li>
-          <li><a href="#gourmet" class="nav-link">Área Gourmet</a></li>
-          <li><a href="#acomodacoes" class="nav-link">Quartos</a></li>
-          <li><a href="#galeria" class="nav-link">Galeria</a></li>
-          <li><a href="#faq" class="nav-link">Dúvidas</a></li>
-        </ul>
-        <a href="#reservas" class="btn btn-primary nav-cta">Reservar pelo WhatsApp</a>
-      </nav>
     </div>
   </header>
 
@@ -64,7 +40,7 @@
       </figure>
 
       <div class="container hero-content">
-        <p class="hero-badge">Conceito Editorial v0.2 · Inspiração Casa Pitanga</p>
+        <p class="hero-badge">Conceito Editorial v0.3 · Casa Pitanga</p>
         <h1 id="hero-title" class="hero-title">
           Refúgio <em>Terracota</em> &amp; Jardim
         </h1>
@@ -128,8 +104,8 @@
         </header>
 
         <div class="editorial-grid editorial-grid-casa">
-          <figure class="photo-card ratio-portrait reveal">
-            <div class="photo-frame">
+          <figure class="photo-card ratio-portrait reveal data-gal="casa" tabindex="0" role="button"">
+            <div class="photo-frame" data-rv="y">
               <img
                 src="assets/images/12-sala-estar-poltronas-terracota-integrad.jpg"
                 alt="Poltronas terracota integradas ao jardim por amplas paredes de vidro"
@@ -142,8 +118,8 @@
             </figcaption>
           </figure>
 
-          <figure class="photo-card ratio-portrait reveal">
-            <div class="photo-frame">
+          <figure class="photo-card ratio-portrait reveal data-gal="casa" tabindex="0" role="button"">
+            <div class="photo-frame" data-rv="y">
               <img
                 src="assets/images/13-sala-estar-sala-envidracada-com-poltron.jpg"
                 alt="Sala envidraçada com poltronas terracota e vista jardim"
@@ -156,8 +132,8 @@
             </figcaption>
           </figure>
 
-          <figure class="photo-card ratio-landscape editorial-span-wide reveal">
-            <div class="photo-frame">
+          <figure class="photo-card ratio-landscape editorial-span-wide reveal data-gal="casa" tabindex="0" role="button"">
+            <div class="photo-frame" data-rv="x">
               <img
                 src="assets/images/14-sala-estar-sala-de-tv-aconchegante-com.jpg"
                 alt="Sala de TV aconchegante com sofá terracota e luz quente"
@@ -170,8 +146,8 @@
             </figcaption>
           </figure>
 
-          <figure class="photo-card ratio-portrait reveal">
-            <div class="photo-frame">
+          <figure class="photo-card ratio-portrait reveal data-gal="casa" tabindex="0" role="button"">
+            <div class="photo-frame" data-rv="y">
               <img
                 src="assets/images/27-detalhes-mesa-posta-a-noite-com-vinho.jpg"
                 alt="Mesa posta à noite com vinho, lanterna acesa e fogo de chão"
@@ -206,8 +182,8 @@
         </header>
 
         <div class="editorial-grid editorial-grid-externa">
-          <figure class="photo-card ratio-portrait reveal">
-            <div class="photo-frame">
+          <figure class="photo-card ratio-portrait reveal data-gal="externa" tabindex="0" role="button"">
+            <div class="photo-frame" data-rv="y">
               <img
                 src="assets/images/05-hidro-pergola-hidromassagem-iluminada-no-d.jpg"
                 alt="Hidromassagem iluminada no deck com vista para a área gourmet"
@@ -220,8 +196,8 @@
             </figcaption>
           </figure>
 
-          <figure class="photo-card ratio-landscape editorial-span-wide reveal">
-            <div class="photo-frame">
+          <figure class="photo-card ratio-landscape editorial-span-wide reveal data-gal="externa" tabindex="0" role="button"">
+            <div class="photo-frame" data-rv="x">
               <img
                 src="assets/images/06-hidro-pergola-hidro-em-deck-elevado-com-de.jpg"
                 alt="Hidro em deck elevado com degraus suspensos, jardim e balanço"
@@ -234,8 +210,8 @@
             </figcaption>
           </figure>
 
-          <figure class="photo-card ratio-landscape reveal">
-            <div class="photo-frame">
+          <figure class="photo-card ratio-landscape reveal data-gal="externa" tabindex="0" role="button"">
+            <div class="photo-frame" data-rv="x">
               <img
                 src="assets/images/09-fogo-de-chao-lazer-jardim-ensolarado-com-fogo-d.jpg"
                 alt="Jardim ensolarado com fogo de chão, ombrelone e conjunto externo"
@@ -248,8 +224,8 @@
             </figcaption>
           </figure>
 
-          <figure class="photo-card ratio-landscape reveal">
-            <div class="photo-frame">
+          <figure class="photo-card ratio-landscape reveal data-gal="externa" tabindex="0" role="button"">
+            <div class="photo-frame" data-rv="x">
               <img
                 src="assets/images/10-fogo-de-chao-lazer-fogo-de-chao-e-mesa-externa.jpg"
                 alt="Fogo de chão e mesa externa cercados pelo jardim ensolarado"
@@ -262,8 +238,8 @@
             </figcaption>
           </figure>
 
-          <figure class="photo-card ratio-portrait reveal">
-            <div class="photo-frame">
+          <figure class="photo-card ratio-portrait reveal data-gal="externa" tabindex="0" role="button"">
+            <div class="photo-frame" data-rv="y">
               <img
                 src="assets/images/11-fogo-de-chao-lazer-piscina-ampla-cercada-de-ver.jpg"
                 alt="Piscina ampla cercada de verde com espreguiçadeiras"
@@ -276,8 +252,8 @@
             </figcaption>
           </figure>
 
-          <figure class="photo-card ratio-landscape editorial-span-wide reveal">
-            <div class="photo-frame">
+          <figure class="photo-card ratio-landscape editorial-span-wide reveal data-gal="externa" tabindex="0" role="button"">
+            <div class="photo-frame" data-rv="x">
               <img
                 src="assets/images/02-fachada-jardim-vista-da-fachada-atraves-do.jpg"
                 alt="Vista da fachada através do jardim florido com varanda ensolarada"
@@ -312,8 +288,8 @@
         </header>
 
         <div class="editorial-grid editorial-grid-gourmet">
-          <figure class="photo-card ratio-portrait reveal">
-            <div class="photo-frame">
+          <figure class="photo-card ratio-portrait reveal data-gal="gourmet" tabindex="0" role="button"">
+            <div class="photo-frame" data-rv="y">
               <img
                 src="assets/images/16-area-gourmet-cozin-espaco-gourmet-amplo-com-mes.jpg"
                 alt="Espaço gourmet amplo com mesas, sinuca e churrasqueiras"
@@ -326,8 +302,8 @@
             </figcaption>
           </figure>
 
-          <figure class="photo-card ratio-landscape editorial-span-wide reveal">
-            <div class="photo-frame">
+          <figure class="photo-card ratio-landscape editorial-span-wide reveal data-gal="gourmet" tabindex="0" role="button"">
+            <div class="photo-frame" data-rv="x">
               <img
                 src="assets/images/17-area-gourmet-cozin-ampla-area-gourmet-integrada.jpg"
                 alt="Ampla área gourmet integrada com bar, mesa, TV e churrasqueira"
@@ -340,8 +316,8 @@
             </figcaption>
           </figure>
 
-          <figure class="photo-card ratio-landscape editorial-span-wide reveal">
-            <div class="photo-frame">
+          <figure class="photo-card ratio-landscape editorial-span-wide reveal data-gal="gourmet" tabindex="0" role="button"">
+            <div class="photo-frame" data-rv="x">
               <img
                 src="assets/images/18-area-gourmet-cozin-area-gourmet-completa-com-ba.jpg"
                 alt="Área gourmet completa com balcão, banquetas e mesa"
@@ -354,8 +330,8 @@
             </figcaption>
           </figure>
 
-          <figure class="photo-card ratio-portrait reveal">
-            <div class="photo-frame">
+          <figure class="photo-card ratio-portrait reveal data-gal="gourmet" tabindex="0" role="button"">
+            <div class="photo-frame" data-rv="y">
               <img
                 src="assets/images/19-area-gourmet-cozin-area-gourmet-com-churrasquei.jpg"
                 alt="Área gourmet com churrasqueira, cervejeira e bancada completa"
@@ -388,8 +364,8 @@
         </header>
 
         <div class="rooms-grid">
-          <figure class="photo-card ratio-portrait reveal">
-            <div class="photo-frame">
+          <figure class="photo-card ratio-portrait reveal data-gal="quartos" tabindex="0" role="button"">
+            <div class="photo-frame" data-rv="y">
               <img
                 src="assets/images/20-quartos-suites-suite-ampla-com-duas-camas-a.jpg"
                 alt="Suíte ampla com duas camas, ar-condicionado e iluminação moderna"
@@ -402,8 +378,8 @@
             </figcaption>
           </figure>
 
-          <figure class="photo-card ratio-portrait reveal">
-            <div class="photo-frame">
+          <figure class="photo-card ratio-portrait reveal data-gal="quartos" tabindex="0" role="button"">
+            <div class="photo-frame" data-rv="y">
               <img
                 src="assets/images/21-quartos-suites-quarto-amplo-com-ar-condicio.jpg"
                 alt="Quarto amplo com ar-condicionado e duas camas"
@@ -416,8 +392,8 @@
             </figcaption>
           </figure>
 
-          <figure class="photo-card ratio-portrait reveal">
-            <div class="photo-frame">
+          <figure class="photo-card ratio-portrait reveal data-gal="quartos" tabindex="0" role="button"">
+            <div class="photo-frame" data-rv="y">
               <img
                 src="assets/images/22-quartos-suites-quarto-iluminado-com-camas-c.jpg"
                 alt="Quarto iluminado com camas confortáveis e cortinas claras"
@@ -430,8 +406,8 @@
             </figcaption>
           </figure>
 
-          <figure class="photo-card ratio-portrait reveal">
-            <div class="photo-frame">
+          <figure class="photo-card ratio-portrait reveal data-gal="quartos" tabindex="0" role="button"">
+            <div class="photo-frame" data-rv="y">
               <img
                 src="assets/images/23-quartos-suites-quarto-climatizado-com-cama.jpg"
                 alt="Quarto climatizado com cama de casal e iluminação moderna"
@@ -444,8 +420,8 @@
             </figcaption>
           </figure>
 
-          <figure class="photo-card ratio-portrait reveal">
-            <div class="photo-frame">
+          <figure class="photo-card ratio-portrait reveal data-gal="quartos" tabindex="0" role="button"">
+            <div class="photo-frame" data-rv="y">
               <img
                 src="assets/images/24-quartos-suites-quarto-climatizado-com-cama.jpg"
                 alt="Quarto climatizado com cama de casal e decoração acolhedora"
@@ -458,8 +434,8 @@
             </figcaption>
           </figure>
 
-          <figure class="photo-card ratio-portrait reveal">
-            <div class="photo-frame">
+          <figure class="photo-card ratio-portrait reveal data-gal="quartos" tabindex="0" role="button"">
+            <div class="photo-frame" data-rv="y">
               <img
                 src="assets/images/25-banheiros-banheiro-moderno-com-box-pre.jpg"
                 alt="Banheiro moderno com box preto e revestimento amadeirado"
@@ -472,8 +448,8 @@
             </figcaption>
           </figure>
 
-          <figure class="photo-card ratio-portrait reveal">
-            <div class="photo-frame">
+          <figure class="photo-card ratio-portrait reveal data-gal="quartos" tabindex="0" role="button"">
+            <div class="photo-frame" data-rv="y">
               <img
                 src="assets/images/26-banheiros-lavabo-com-bancada-de-madeir.jpg"
                 alt="Lavabo com bancada de madeira rústica, cuba de vidro e espelho redondo"
@@ -1099,7 +1075,7 @@
                 <path d="M14 3C16 6 15 8 14 9C13 8 12 6 14 3Z" fill="#2A331C"/>
               </svg>
             </div>
-            <p class="eyebrow">07 · Reservas &amp; Briefing v0.2</p>
+            <p class="eyebrow">07 · Reservas &amp; Briefing v0.3</p>
             <h2 id="reservas-title" class="section-title">
               Viva essa <em>experiência</em>
             </h2>
@@ -1146,7 +1122,7 @@
         <header class="section-header reveal">
           <p class="eyebrow">08 · Perguntas Frequentes</p>
           <h2 id="faq-title" class="section-title">
-            Dúvidas sobre a <em>estadia</em> e o conceito v0.2
+            Dúvidas sobre a <em>estadia</em> e o conceito v0.3
           </h2>
         </header>
 
@@ -1305,12 +1281,14 @@
 
       <div class="footer-bottom">
         <p class="preview-notice">
-          Versão Conceito v0.2 · Identidade Visual Casa Pitanga (dados finais aguardando briefing)
+          Versão Conceito v0.3 · Fidelidade Visual &amp; Motion Casa Pitanga (dados finais aguardando briefing)
         </p>
         <p class="footer-copy">Casa Enio Junior · Acervo fotográfico real (27 imagens)</p>
       </div>
     </div>
   </footer>
+
+  <a href="#reservas" class="fab" id="mobileFab">Reservar pelo WhatsApp</a>
 
   <!-- Lightbox Modal -->
   <div
