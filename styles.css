@@ -510,7 +510,7 @@ h3 em {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 42%;
+  object-position: center 45%;
   display: block;
 }
 
@@ -628,38 +628,30 @@ h3 em {
 
 /* ==========================================================================
    Efeitos Visuais nas Imagens (Casa Pitanga: clip-path wipe + scale settle)
-   - Cantos retos (border-radius: 0), sem zoom/opacity no hover, cursor: zoom-in
+   - Proporção natural 100% preservada (zero distorção ou corte forçado)
    ========================================================================== */
 
 .editorial-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(14px, 2vw, 28px);
-  align-items: start;
+  columns: 2 320px;
+  column-gap: clamp(16px, 2.2vw, 30px);
 }
 
 .editorial-grid-casa {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.editorial-grid-casa .editorial-span-wide {
-  grid-column: span 1;
-}
-
-.editorial-span-wide {
-  grid-column: span 2;
+  columns: 2 320px;
 }
 
 .photo-card {
-  display: flex;
-  flex-direction: column;
+  display: block;
+  width: 100%;
+  margin: 0 0 clamp(18px, 2.5vw, 32px);
+  break-inside: avoid;
   background: transparent;
   border-radius: 0;
   cursor: zoom-in;
 }
 
 .photo-card.is-offset {
-  margin-top: clamp(0px, 5vw, 64px);
+  margin-top: 0;
 }
 
 .photo-frame {
@@ -673,26 +665,9 @@ h3 em {
   background-color: var(--olive-placeholder);
 }
 
-.photo-card.ratio-landscape .photo-frame {
-  aspect-ratio: 16 / 10;
-  max-height: 440px;
-}
-
-.photo-card.ratio-portrait .photo-frame {
-  aspect-ratio: 4 / 5;
-  max-height: 440px;
-}
-
-.photo-card.ratio-square .photo-frame {
-  aspect-ratio: 1 / 1;
-  max-height: 440px;
-}
-
 .photo-frame img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  height: auto;
   display: block;
 }
 
@@ -744,11 +719,10 @@ html.js-ready [data-rv].is-revealed img {
   color: var(--caption-olive);
 }
 
-/* Quartos, Suítes & Banheiros */
+/* Quartos, Suítes & Banheiros — Masonry 3 colunas em proporção natural */
 .rooms-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(14px, 2vw, 24px);
+  columns: 3 220px;
+  column-gap: clamp(14px, 2vw, 24px);
 }
 
 /* ==========================================================================
@@ -818,21 +792,9 @@ html.js-ready [data-rv].is-revealed img {
 
 .gallery-trigger img {
   width: 100%;
+  height: auto;
+  display: block;
   border-radius: 0;
-  object-fit: cover;
-  object-position: center;
-}
-
-.gallery-item.ratio-landscape .gallery-trigger img {
-  aspect-ratio: 3 / 2;
-}
-
-.gallery-item.ratio-portrait .gallery-trigger img {
-  aspect-ratio: 3 / 4;
-}
-
-.gallery-item.ratio-square .gallery-trigger img {
-  aspect-ratio: 1 / 1;
 }
 
 .gallery-meta {
@@ -1212,13 +1174,12 @@ html.js-ready [data-rv].is-revealed img {
    ========================================================================== */
 
 @media (max-width: 1024px) {
-  .editorial-grid,
   .amenities-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .rooms-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    columns: 2 220px;
   }
 
   .booking-panel,
@@ -1248,21 +1209,17 @@ html.js-ready [data-rv].is-revealed img {
     border-top: 0;
   }
 
-  .editorial-grid,
   .amenities-grid {
     grid-template-columns: 1fr;
   }
 
-  .editorial-span-wide {
-    grid-column: span 1;
-  }
-
-  .photo-card.is-offset {
-    margin-top: 0;
+  .editorial-grid,
+  .editorial-grid-casa {
+    columns: 1;
   }
 
   .rooms-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    columns: 2 180px;
   }
 
   .gallery-filters {
@@ -1298,8 +1255,7 @@ html.js-ready [data-rv].is-revealed img {
 }
 
 @media (max-width: 520px) {
-  .specs-grid,
-  .rooms-grid {
+  .specs-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1308,6 +1264,7 @@ html.js-ready [data-rv].is-revealed img {
     border-top: 1px solid var(--hairline);
   }
 
+  .rooms-grid,
   .gallery-grid {
     columns: 1;
   }
