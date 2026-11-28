@@ -41,7 +41,7 @@
 
     const updateOnScroll = () => {
       const y = window.scrollY || window.pageYOffset || 0;
-      if (siteNav) {
+      if (siteNav && !siteNav.classList.contains('is-solid')) {
         siteNav.classList.toggle('is-scrolled', y > 40);
       }
       if (mobileFab && heroEl) {
@@ -289,81 +289,15 @@
   };
 
   /**
-   * 6. Navegação Suave & Avisos Placeholder de Briefing
+   * 6. Navegação Suave em Âncoras Internas
    */
-  const initPlaceholderActions = () => {
-    let toastTimer = null;
-    let toastEl = null;
-
-    const showDiscreteNotice = (message) => {
-      if (!toastEl) {
-        toastEl = document.createElement('div');
-        toastEl.className = 'placeholder-toast';
-        toastEl.setAttribute('role', 'status');
-        toastEl.setAttribute('aria-live', 'polite');
-        Object.assign(toastEl.style, {
-          position: 'fixed',
-          left: '50%',
-          bottom: '24px',
-          transform: 'translateX(-50%) translateY(12px)',
-          backgroundColor: '#2C3A20',
-          color: '#F5F2EC',
-          padding: '12px 20px',
-          borderRadius: '2px',
-          fontSize: '0.875rem',
-          lineHeight: '1.4',
-          boxShadow: '0 10px 28px rgba(0, 0, 0, 0.22)',
-          zIndex: '1200',
-          opacity: '0',
-          pointerEvents: 'none',
-          transition: 'opacity 220ms ease, transform 220ms ease',
-          maxWidth: 'calc(100vw - 32px)',
-          textAlign: 'center',
-        });
-        document.body.appendChild(toastEl);
-      }
-
-      toastEl.textContent = message;
-      requestAnimationFrame(() => {
-        toastEl.style.opacity = '1';
-        toastEl.style.transform = 'translateX(-50%) translateY(0)';
-      });
-
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(() => {
-        if (!toastEl) return;
-        toastEl.style.opacity = '0';
-        toastEl.style.transform = 'translateX(-50%) translateY(12px)';
-      }, 3400);
-    };
-
+  const initSmoothAnchors = () => {
     document.addEventListener('click', (event) => {
-      const placeholderTrigger = event.target.closest('a[href="#reservas"], [data-placeholder-wa]');
-      if (placeholderTrigger) {
-        const href = placeholderTrigger.getAttribute('href') || '';
-        const isPlaceholderWa = placeholderTrigger.hasAttribute('data-placeholder-wa');
-
-        if (href === '#reservas') {
-          event.preventDefault();
-          smoothScrollTo('#reservas');
-        } else if (isPlaceholderWa) {
-          event.preventDefault();
-        }
-
-        if (isPlaceholderWa) {
-          showDiscreteNotice(
-            'Canal oficial de reservas via WhatsApp será ativado após confirmação do briefing.'
-          );
-        }
-        return;
-      }
-
       const anchor = event.target.closest('a[href^="#"]');
-      if (anchor) {
-        const hash = anchor.getAttribute('href');
-        if (hash && hash.length > 1 && smoothScrollTo(hash)) {
-          event.preventDefault();
-        }
+      if (!anchor) return;
+      const hash = anchor.getAttribute('href');
+      if (hash && hash.length > 1 && smoothScrollTo(hash)) {
+        event.preventDefault();
       }
     });
   };
@@ -374,7 +308,7 @@
     initGalleryFilters();
     initLightbox();
     initFaqAccordion();
-    initPlaceholderActions();
+    initSmoothAnchors();
   };
 
   if (document.readyState === 'loading') {

@@ -1,30 +1,28 @@
-# Identidade Visual & Direção de Arte — Versão v0.2 (Padrão Casa Pitanga)
+# Identidade Visual & Especificação de Produção — Casa Temporada Gravatá (v1.0)
 
-**Cliente:** Enio Junior  
-**Nome Provisório:** Refúgio Terracota & Jardim *(Casa Enio Junior · Conceito v0.2)* — `[A definir no briefing]`  
-**Referência Visual Adotada:** `https://casapitangatrancoso.com.br/`
+**Propriedade:** Casa Temporada Gravatá  
+**Slogan:** Conforto, lazer e momentos inesquecíveis na serra  
+**Anfitrião:** Enio Araújo (`(81) 99930-6600` · `enioaraujojr@gmail.com` · `@casatemporadagravata`)  
+**Localização:** Condomínio Privê Nossa Senhora de Lourdes · R. Josília Maria Ferreira, 2-54 — COHAB II, Gravatá - PE
 
 ---
 
-## 1. Paleta Oficial (Fiel à Casa Pitanga)
+## 1. Paleta Solar & Natural na Serra (Evolução Editorial Casa Pitanga)
 
 | Token | Hex | Aplicação |
 |---|---|---|
-| `--cream` | `#F5F2EB` | Canvas editorial principal, header rolado, divisores serrilhados |
-| `--cream-alt` | `#ECE7DC` | Fundo neutro de carregamento de imagens |
-| `--olive` | `#2A331C` | Faixa imersiva **Área Externa & Lazer** e **Rodapé** |
-| `--olive-deep` | `#222A16` | Apoio escuro para molduras na faixa verde-oliva |
-| `--pitanga` | `#9B2B23` | Wordmark no topo claro, botões retangulares primários, itálicos de destaque nos títulos e abas ativas |
-| `--pitanga-hover` | `#7D211A` | Estado hover dos botões primários |
-| `--ink` | `#1E2116` | Tipografia principal sobre creme marfim |
-| `--muted` | `#5A5D50` | Textos de apoio e legendas discretas |
-| `--sand-light` | `#E4D7C0` | Itálicos e eyebrows sobre fundos escuros (`#2A331C` e Hero) |
+| `--cream` | `#F8F6F1` | Canvas solar luminoso principal, header rolado e recortes botânicos |
+| `--cream-sand` | `#EFEAE0` | Faixas alternadas suaves (Acomodações, Localização, Avaliações e FAQ) |
+| `--olive` | `#20332B` | Faixa imersiva **Área Externa & Lazer** e **Rodapé** (verde-serra com toque mineral) |
+| `--pitanga` | `#91302C` | Wordmark rolado, CTA retangular principal, itálicos de destaque e abas ativas |
+| `--water-accent` | `#2D6A6F` | Toque mineral azul/verde-água nos kickers dos diferenciais (Jacuzzi, Wallbox, Lareira, Fechadura) e nota de transparência |
+| `--ink` | `#1C231E` | Tipografia principal |
+| `--muted` | `#56605A` | Textos de apoio |
 
 ---
 
-## 2. Tipografia & Geometria Editorial
-- **Títulos:** `Cormorant Garamond` (peso `400/500`, trechos enfatizados em *itálico `#9B2B23`* sobre marfim e `#E4D7C0` sobre verde-oliva).
-- **Corpo e rótulos:** `Plus Jakarta Sans`, labels em caixa alta com `letter-spacing: 0.14em–0.16em`.
-- **Botões retangulares (`border-radius: 2px`)** em `#9B2B23` + ações secundárias como **link sublinhado minimalista** (`border-bottom: 1px solid currentColor`).
-- **Fotografias de revista:** sem caixas brancas nem sombras pesadas — fotos diretas sobre o fundo `#F5F2EB` ou `#2A331C` com legenda limpa abaixo e **transição botânica/serrilhada SVG** delimitando a faixa da Área Externa.
-- **Galeria e Comodidades:** abas sublinhadas em `#9B2B23` na galeria (mantendo Lightbox) e listas abertas separadas por filetes finos (`1px`) em vez de cards fechados.
+## 2. Melhorias Aplicadas na v1.0 a Partir do Briefing
+- **Zero placeholders pendentes:** todos os canais oficiais (WhatsApp `(81) 99930-6600`, Airbnb, Booking.com, Instagram `@casatemporadagravata`, e-mail e endereço exato) integrados e ativos.
+- **Revisão fotográfica:** removida a tarja de marca d'água Motorola em `14-sala-estar-sala-de-tv-aconchegante-com.jpg`; gerada foto editorial da trilha de cachoeira na Serra de Gravatá via Nano Banana (`28-experiencia-serra-gravata-cachoeira.jpg`).
+- **Transparência e precisão factual:** separação clara entre a **jacuzzi privativa aquecida com cromoterapia** da casa e a **piscina ampla compartilhada** do condomínio, além de transparência sobre energia elétrica cobrada à parte no check-out.
+- **Mapa interativo + páginas legais:** embed do Google Maps nas coordenadas reais (`-8.2188505, -35.5531178`) e páginas dedicadas `termos-de-reserva.html` e `politica-de-privacidade.html`.
