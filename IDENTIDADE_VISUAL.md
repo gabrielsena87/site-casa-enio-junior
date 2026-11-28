@@ -24,5 +24,5 @@
 ## 2. Melhorias Aplicadas na v1.0 a Partir do Briefing
 - **Zero placeholders pendentes:** todos os canais oficiais (WhatsApp `(81) 99930-6600`, Airbnb, Booking.com, Instagram `@casatemporadagravata`, e-mail e endereço exato) integrados e ativos.
 - **Revisão fotográfica:** removida a tarja de marca d'água Motorola em `14-sala-estar-sala-de-tv-aconchegante-com.jpg`; gerada foto editorial da trilha de cachoeira na Serra de Gravatá via Nano Banana (`28-experiencia-serra-gravata-cachoeira.jpg`).
-- **Transparência e precisão factual:** separação clara entre a **jacuzzi privativa aquecida com cromoterapia** da casa e a **piscina ampla compartilhada** do condomínio, além de transparência sobre energia elétrica cobrada à parte no check-out.
+- **Transparência e precisão factual:** separação clara entre as áreas privativas da casa (**jacuzzi aquecida com cromoterapia**, **espaço lareira**, **área gourmet** e **Wallbox**) e as áreas comuns compartilhadas do condomínio (**piscina ampla**, **salão de convivência**, jardins e capela), além de transparência sobre energia elétrica cobrada à parte no check-out.
 - **Mapa interativo + páginas legais:** embed do Google Maps nas coordenadas reais (`-8.2188505, -35.5531178`) e páginas dedicadas `termos-de-reserva.html` e `politica-de-privacidade.html`.
